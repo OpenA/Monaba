@@ -55,7 +55,6 @@ MarkupInlineLatex: inline LaTeX
 MarkupLatex: LaTeX
 MarkupQuote: >quote
 
-FileUpload: Upload file
 Error lolka@Text: Error: #{lolka}
 MustBeGreaterThan qwe@Text qw@Int: '#{qwe}' must be greater than #{show qw}
 ######################################################################################

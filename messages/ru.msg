@@ -54,7 +54,6 @@ MarkupInlineLatex: inline LaTeX
 MarkupLatex: LaTeX
 MarkupQuote: >цитата
 
-FileUpload: Загрузить файл
 Error lolka@Text: Ошибка: #{lolka}
 MustBeGreaterThan qwe@Text qw@Int: '#{qwe}' должно быть больше #{show qw}
 ######################################################################################
