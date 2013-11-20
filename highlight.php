@@ -1,6 +1,6 @@
 #!/usr/bin/php
 <?php
-include_once '/home/user/geshi/geshi.php';
+include_once '../geshi/geshi.php';
 $source = file_get_contents("php://stdin");
 $geshi = new GeSHi($source, $argv[1]);
 //$geshi->enable_keyword_links(false);

@@ -1,0 +1,24 @@
+Default: &defaults
+  user: postgres
+  password: passwd
+  host: localhost
+  port: 5432
+  database: monaba
+  poolsize: 10
+
+Development:
+  <<: *defaults
+
+Testing:
+  database: monaba_test
+  <<: *defaults
+
+Staging:
+  database: monaba_staging
+  poolsize: 100
+  <<: *defaults
+
+Production:
+  database: monaba_production
+  poolsize: 100
+  <<: *defaults

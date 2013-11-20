@@ -36,12 +36,12 @@ Board
     replyAccess       [Text]   Maybe -- group names
     threadAccess      [Text]   Maybe -- group names
     category          Text     Maybe
-    opModeration      Bool     default=0
+    opModeration      Bool     default=false
     extraRules        [Text]   
-    enableGeoIp       Bool     default=0
-    opEditing         Bool     default=0
-    postEditing       Bool     default=0
-    showEditHistory   Bool     default=0
+    enableGeoIp       Bool     default=false
+    opEditing         Bool     default=false
+    postEditing       Bool     default=false
+    showEditHistory   Bool     default=false
     deriving          Typeable
 Post
     board        Text
@@ -55,11 +55,11 @@ Post
     sticked      Bool
     locked       Bool
     autosage     Bool
-    deleted      Bool default=0
-    deletedByOp  Bool default=0
+    deleted      Bool default=false
+    deletedByOp  Bool default=false
     posterId     Text 
-    lastModified UTCTime Maybe default=null
-    hellbanned   Bool default=0 -- visible only for post author
+    lastModified UTCTime Maybe
+    hellbanned   Bool default=false -- visible only for post author
     -- form's values
     message      Textarea
     rawMessage   Text
@@ -113,7 +113,7 @@ Config
     showNews        Int  default=2
     maxEditings     Int  default=10
     showLatestPosts Int  default=15
-    displaySage     Bool default=0
+    displaySage     Bool default=false
     modlogMaxEntries     Int default=3000
     modlogEntriesPerPage Int default=30
 Hellban
