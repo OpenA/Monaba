@@ -60,14 +60,19 @@ postForm boardVal extra = do
       urls = [(msgrender MsgToThread, ToThread), (msgrender MsgToBoard, ToBoard)]
       ratings :: [(Text, Censorship)]
       ratings = map (showText &&& id) [minBound..maxBound]
+	  
+  let nameInput lbl = lbl { fsAttrs = [("placeholder",msgrender MsgName)] }
+      subjectInput lbl = lbl { fsAttrs = [("placeholder",msgrender MsgSubject)] }
+      passwordInput lbl = lbl { fsAttrs = [("placeholder",msgrender MsgPassword)] }
+      captchaInput lbl = lbl { fsAttrs = [("placeholder",msgrender MsgCaptcha)] }
   ----------------------------------------------------------------------------------------------------------------
-  (nameRes     , nameView    ) <- mopt textField              "" (Just <$> lastName)
-  (subjectRes  , subjectView ) <- mopt textField              "" (Just              <$> lastTitle)
-  (messageRes  , messageView ) <- mopt myMessageField         "" ((Just . Textarea) <$> lastMessage)
-  (passwordRes , passwordView) <- mreq passwordField          "" Nothing
-  (captchaRes  , captchaView ) <- mopt textField              "" Nothing
-  (gobackRes   , gobackView  ) <- mreq (selectFieldList urls) "" (Just $ maybe ToBoard (\x -> read $ unpack x :: GoBackTo) lastGoback)
-  (nobumpRes   , nobumpView  ) <- mopt checkBoxField          "" Nothing
+  (nameRes     , nameView    ) <- mopt textField      (nameInput     "")  (Just              <$> lastName)
+  (subjectRes  , subjectView ) <- mopt textField      (subjectInput  "")  (Just              <$> lastTitle)
+  (messageRes  , messageView ) <- mopt myMessageField                ""  ((Just . Textarea)  <$> lastMessage)
+  (passwordRes , passwordView) <- mreq passwordField  (passwordInput "")   Nothing
+  (captchaRes  , captchaView ) <- mopt textField      (captchaInput  "")   Nothing
+  (gobackRes   , gobackView  ) <- mreq        (selectFieldList urls) ""   (Just $ maybe ToBoard (\x -> read $ unpack x :: GoBackTo) lastGoback)
+  (nobumpRes   , nobumpView  ) <- mopt checkBoxField                 ""    Nothing
   (fileresults , fileviews   ) <- unzip <$> forM ([1..numberFiles] :: [Int]) (\_ -> mopt fileField "File" Nothing)
   (ratingresults, ratingviews) <- unzip <$> forM ([1..numberFiles] :: [Int]) (\_ -> mreq (selectFieldList ratings) "" Nothing)
   let result = (,,,,,,,,) <$>  nameRes <*> subjectRes  <*> messageRes <*> passwordRes <*> captchaRes <*>

@@ -2,59 +2,54 @@
 <table>
     <tbody>
         <tr .post-block>
-            <td .post-block-named>_{MsgName}
             <td>
                 ^{fvInput nameView}
         <tr .post-block>
-            <td .post-block-named>_{MsgSubject}
             <td #subject-block>
                 ^{fvInput subjectView}
-                <input type=submit value=_{MsgSubmitBtn}>
+                <input type="submit" value="_{MsgSubmitBtn}">
         <tr .post-block>
-            <td .post-block-named>_{MsgMessage}
             <td>
                 ^{fvInput messageView}
                 <div .markup-buttons>
-                     <a id=button-bold>
+                     <a id="button-bold">
                         <strong>
                           _{MsgMarkupBold}
                      |
-                     <a id=button-italic>
+                     <a id="button-italic">
                         <em>
                           _{MsgMarkupItalic}
                      |
-                     <a id=button-underline>
+                     <a id="button-underline">
                         <u>
                           _{MsgMarkupUnderline}
                      |
-                     <a id=button-strike>
+                     <a id="button-strike">
                         <span style="text-decoration:line-through">
                           _{MsgMarkupStrike}
                      |
-                     <a id=button-spoiler>
+                     <a id="button-spoiler">
                         <span .spoiler>
                           _{MsgMarkupSpoiler}
                      |
-                     <a id=button-code>
+                     <a id="button-code">
                         _{MsgMarkupCode}
                      |
-                     <a id=button-inline-latex>
+                     <a id="button-inline-latex">
                         _{MsgMarkupInlineLatex}
                      |
-                     <a id=button-latex>
+                     <a id="button-latex">
                         _{MsgMarkupLatex}
                      |
-                     <a id=button-quote .quote>
+                     <a id="button-quote" .quote>
                         _{MsgMarkupQuote}
                      |
-                     <span style=display:inline .symbol-counter>
+                     <span style="display:inline;" .symbol-counter>
         <tr .post-block>
-            <td .post-block-named>_{MsgPassword}
             <td>
                 ^{fvInput passwordView}
         $if enableCaptchaW
             <tr .post-block>
-                <td .post-block-named>_{MsgCaptcha}
                 <td #captcha-block>
                     $if isJust muserW
                         _{MsgYouDontNeedCaptcha}
@@ -62,7 +57,7 @@
                         $maybe _ <- acaptchaW
                             _{MsgYouDontNeedCaptcha}
                         $nothing
-                            <img alt=captcha #captcha src=@{CaptchaR}>
+                            <img alt="captcha" #captcha src="@{CaptchaR}">
                             ^{fvInput captchaView} 
                             <span #captcha-info>
                                 $maybe c <- maybeCaptchaInfoW
@@ -77,7 +72,6 @@
                                     _{MsgReloadPage}
         $if length fileviews > 0
             <tr .post-block>
-                <td .post-block-named>_{MsgFile}
                 <td>
                     <div .form-files>
                         $forall (i, (fv, rv)) <- enumerate (zip fileviews ratingviews)
@@ -85,21 +79,19 @@
                                 <div .file-input>
                                     ^{fvInput fv}
                                     ^{fvInput rv}
-                                    <img alt=[remove] title=_{MsgRemoveFileIcon} onclick="clearFile('#{unpack $ fvId fv}')" src=@{StaticR img_blank_gif}  .icon-close>
+                                    <img alt="[remove]" title="_{MsgRemoveFileIcon}" onclick="clearFile('#{unpack $ fvId fv}')" src="@{StaticR img_blank_gif}"  .icon-close>
                             $else
-                                <div style=display:none .file-input>
+                                <div style="display:none;" .file-input>
                                     ^{fvInput fv}
                                     ^{fvInput rv}
-                                    <img alt=[remove] title=_{MsgRemoveFileIcon} onclick="clearFile('#{unpack $ fvId fv}')" src=@{StaticR img_blank_gif}  .icon-close>
+                                    <img alt="[remove]" title="_{MsgRemoveFileIcon}" onclick="clearFile('#{unpack $ fvId fv}')" src="@{StaticR img_blank_gif}"  .icon-close>
         <tr #go-back-block .post-block>
-            <td .post-block-named>_{MsgGoback}
             <td>
+                <label for="#{fvId gobackView}">_{MsgGoback}
                 ^{fvInput gobackView}
         <tr #no-bump-block .post-block>
-            <td .post-block-named>
-              <label for=#{fvId nobumpView}>
-                _{MsgNobump}
             <td>
+                <label for="#{fvId nobumpView}">_{MsgNobump}
                 ^{fvInput nobumpView}
 <table #info-table>
     <tr .post-block>

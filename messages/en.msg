@@ -6,7 +6,7 @@ Name: Name
 Subject: Subject
 SubmitBtn: Submit
 Message: Message
-Password: Password
+Password: Type password
 File: File
 Goback: Go back to
 ToThread: thread
@@ -305,7 +305,7 @@ ApiCount: Number of posts
 ######################################################################################
 #### Captcha
 ######################################################################################
-Captcha: Captcha
+Captcha: Type captcha symbols
 ReloadPage: Error. Reload page.
 TypeOnly: Type only 
 ItalicChars: italic characters
