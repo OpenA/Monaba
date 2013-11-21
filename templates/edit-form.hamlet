@@ -1,49 +1,50 @@
 #{extra}
-<span style=display:none>
+<span style="display:none;">
     ^{fvInput postIdView}
 
-<span style=padding:5px>
+<span style="padding:5px;">
     ^{fvInput messageView}
-<div style=padding:5px>
-    <div style=display:inline .markup-buttons>
-        <a id=button-bold-edit>
+<div style="padding:5px;">
+    <div style="display:inline;" .markup-buttons>
+        <a id="button-bold-edit">
            <strong>
              _{MsgMarkupBold}
         |
-        <a id=button-italic-edit>
+        <a id="button-italic-edit">
            <em>
              _{MsgMarkupItalic}
         |
-        <a id=button-underline-edit>
+        <a id="button-underline-edit">
            <u>
              _{MsgMarkupUnderline}
         |
-        <a id=button-strike-edit>
-           <span style="text-decoration:line-through">
+        <a id="button-strike-edit">
+           <span style="text-decoration:line-through;">
              _{MsgMarkupStrike}
         |
-        <a id=button-spoiler-edit>
+        <a id="button-spoiler-edit">
            <span .spoiler>
              _{MsgMarkupSpoiler}
         |
-        <a id=button-code-edit>
+        <a id="button-code-edit">
            _{MsgMarkupCode}
         |
-        <a id=button-inline-latex-edit>
+        <a id="button-inline-latex-edit">
            _{MsgMarkupInlineLatex}
         |
-        <a id=button-latex-edit>
+        <a id="button-latex-edit">
            _{MsgMarkupLatex}
         |
-        <a id=button-quote-edit .quote>
+        <a id="button-quote-edit" .quote>
            _{MsgMarkupQuote}
         |
-        <span style=display:inline .symbol-counter>
-    ^{fvInput passwordView}
-    <input type=button id=edit-button value=_{MsgEdit}>
-    <img alt=[close] title=_{MsgCloseIcon} onclick="hideEditForm()" src=@{StaticR img_blank_gif}  .icon-close #close-edit-form>
+        <span style="display:inline;" .symbol-counter>
+    <div style="padding:5px 0;">
+        ^{fvInput passwordView}
+        <input type="button" id="edit-button" value="_{MsgEdit}">
     $if elem ShadowEditP permissions
       <div>
-        <label for=#{fvId shadowView}>
+        <img alt="[close]" title="_{MsgCloseIcon}" onclick="hideEditForm()" src="@{StaticR img_blank_gif}"  .icon-close #close-edit-form>
+        <label for="#{fvId shadowView}">
           _{MsgDontSaveHistory}
         ^{fvInput shadowView}

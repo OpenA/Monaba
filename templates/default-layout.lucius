@@ -2,9 +2,11 @@ html {
     position: relative;
     min-height: 97%;
 }
+
 body {
     margin: 0 0 30px; /* bottom = footer height */
 }
+
 footer {
     position: absolute;
     left: 0;
@@ -12,6 +14,7 @@ footer {
     height: 30px;
     width: 100%;
 }
+
 body {
     padding: 8px;
 }
@@ -170,10 +173,6 @@ hr {
     float: right;
 }
 
-.no-js .icon-hide-thread {
-    display: none;
-}
-
 .icon-show-thread {
     float: right;
     background-position: -1037px -77px;
@@ -182,10 +181,6 @@ hr {
 .icon-hide-thread-completely {
     float: right;
     background-position: -77px -29px;
-}
-
-.no-js .icon-hide-thread-completely {
-    display: none;
 }
 
 .admin-table {
@@ -246,12 +241,7 @@ hr {
     background-position: -605px -173px;
 }
 
-.no-js .icon-reply {
-    display: none;
-}
-
 .show-plain-form {
-    display:none;
     text-align: center;
 }
 
@@ -276,10 +266,6 @@ header {
     background-position: -77px -77px;
 }
 
-.no-js .icon-edit-post {
-    display: none;
-}
-
 .icon-close {
     background-position: -269px -101px;
 }
@@ -289,16 +275,8 @@ header {
     opacity: 0.3;
 }
 
-.no-js .icon-del-post {
-    display: none;
-}
-
-.js .mark-to-delete input[type=checkbox] {
-    display:none;
-}
-
 #edit-form textarea {
-    width: 98%;
+    width: 75%;
 }
 
 #close-edit-form {
@@ -332,12 +310,7 @@ header {
 }
 
 .file-info {
-    font-style: italic;
     margin: 2px;
-}
-
-iframe {
-    border: 0px;
 }
 
 .icon-play {
@@ -374,13 +347,13 @@ ul {
 
 .markup-wrapper {
     margin:0 auto;
-    width:90%;
+    width: 90%;
     padding: 5px;
 }
 
 .abbreviated {
     max-height: 250px;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 #delete-container {
@@ -392,11 +365,7 @@ ul {
     cursor: auto;
 }
 
-#captcha {
-    display: block;
-}
-
-.censored {
+#captcha, .censored, iframe, pre {
     display: block;
 }
 
@@ -407,4 +376,31 @@ ul {
 
 .video-thumb {
     cursor: pointer;
+}
+
+.video-container {
+	display: table;
+    background-color: black;
+}
+
+iframe {
+    border: none;
+}
+
+pre {
+    overflow: auto;
+    width: 40%;
+    height: 150px;
+    min-height: 150px;
+    resize: both !important;
+}
+
+.js .mark-to-delete input[type=checkbox],
+.no-js .icon-hide-thread-completely,
+.no-js .icon-hide-thread,
+.no-js .icon-edit-post,
+.no-js .icon-del-post,
+.no-js .icon-reply,
+.show-plain-form {
+    display: none;
 }
