@@ -52,7 +52,8 @@ Linux (APT):
 OS X (Homebrew):
 
     brew install ghc freetype fontconfig postgresql
-    brew install cabal-install geoip gd
+    brew install cabal-install geoip
+    brew install gd --with-fontconfig --with-freetype
     
 **Using already compiled binary:**
 
